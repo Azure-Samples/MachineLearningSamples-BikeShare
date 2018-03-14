@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 40,
+  "id": "b546c49b-ab5e-4c20-b671-161284b355f4",
+  "activities": [
+    {
+      "id": "27f0c16a-16f3-4dbf-a96b-81f47ca5b53e",
+      "name": "BostonWeather",
+      "blocks": [
+        {
+          "id": "3431b9da-955c-46cc-9ff2-7cb291f6d602",
+          "type": "Microsoft.DPrep.ReferenceActivityBlock",
+          "arguments": {
+            "reference": {
+              "referenceType": 1,
+              "referenceContainerPath": "./BostonWeather.dsource",
+              "referencedActivityId": "28e4ed01-dcba-4575-b7b0-4e01001da7ef",
+              "referencedBranchId": null,
+              "referencedStep": null,
+              "anonymousSteps": null
+            }
+          }
+        }
+      ],
+      "inspectors": [
+        {
+          "id": "c8217457-0cb2-48db-aded-dc57345b50b4",
+          "type": "Microsoft.DPrep.DataQualityInspector",
+          "arguments": {},
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "27f0c16a-16f3-4dbf-a96b-81f47ca5b53e",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 1,
+              "referencedStepId": null,
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": false
+        }
+      ]
+    }
+  ],
+  "runConfigurations": []
+}

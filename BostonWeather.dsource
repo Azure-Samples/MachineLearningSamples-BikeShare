@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 40,
+  "id": "efd89d87-1ca5-4688-9fa5-74fdbecc51eb",
+  "activities": [
+    {
+      "id": "28e4ed01-dcba-4575-b7b0-4e01001da7ef",
+      "name": "BostonWeather",
+      "blocks": [
+        {
+          "id": "fa786e07-a955-40b1-8f5c-66efffde4cff",
+          "type": "Microsoft.DPrep.DataSourceBlock",
+          "arguments": {
+            "path": {
+              "target": 0,
+              "resourceDetails": [
+                {
+                  "path": "C:\\Users\\cforbe\\Downloads\\BostonWeather.csv"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "a8ac42e3-3e25-40e7-bbc4-3866727bd6fa",
+          "type": "Microsoft.DPrep.ParseDelimitedBlock",
+          "arguments": {
+            "preview": false,
+            "columnHeadersMode": 1,
+            "separator": ",",
+            "fileEncoding": 0,
+            "skipRowsMode": 0,
+            "handleQuotedLineBreaks": false
+          }
+        },
+        {
+          "id": "5a032d48-7a46-46dd-9084-2e5fa9a8c26c",
+          "type": "Microsoft.DPrep.SetColumnTypesBlock",
+          "arguments": {
+            "columnConversion": [
+              {
+                "columnId": "DATE",
+                "typeProperty": 4,
+                "typeArguments": {
+                  "dateTimeFormats": [
+                    "%m/%d/%Y %H:%M"
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "6bc544b9-6e94-424b-823f-d178d2e10b8b",
+          "type": "Microsoft.DPrep.SampleBlock",
+          "arguments": {
+            "samples": [
+              {
+                "sampleId": "a22e0b4a-0080-40ae-9188-6a38ea7fb158",
+                "sampleRevision": "00625b22-c966-461b-911c-c58d1283123c",
+                "sampleName": "Full File",
+                "sampleRunner": {
+                  "id": null,
+                  "type": 0
+                },
+                "remoteGeneratorProperties": {},
+                "sampleStrategy": 3,
+                "topArguments": {
+                  "sampleCount": 10000
+                },
+                "randomNArguments": {
+                  "sampleCount": 10000
+                },
+                "randomPercentArguments": {
+                  "probability": 0.1
+                },
+                "allowAutoGen": true,
+                "isDisabled": false
+              }
+            ],
+            "activeSample": "a22e0b4a-0080-40ae-9188-6a38ea7fb158"
+          }
+        },
+        {
+          "id": "737f4b65-c4bd-4081-89ab-8b0033bb8526",
+          "type": "Microsoft.DPrep.HandlePathColumnBlock",
+          "arguments": {
+            "pathColumnOperation": 0
+          }
+        }
+      ],
+      "inspectors": [
+        {
+          "id": "faf4bd63-bbd5-4918-9cf6-2ed8c74a0a05",
+          "type": "Microsoft.DPrep.DataQualityInspector",
+          "arguments": {},
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "28e4ed01-dcba-4575-b7b0-4e01001da7ef",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 1,
+              "referencedStepId": null,
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": false
+        }
+      ]
+    }
+  ],
+  "runConfigurations": []
+}
